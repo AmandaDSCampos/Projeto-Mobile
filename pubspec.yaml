@@ -1,0 +1,26 @@
+name: mobile
+description: "Projeto Flutter do EduMentor"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  google_fonts: ^8.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  assets:
+    - assets/images/arte.jpeg
+    - assets/images/anatomia.jpeg
+    - assets/images/fauna.jpeg
+    - assets/images/astronomia.jpeg
