@@ -1,6 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
+class _BackArrow extends CustomPainter {
+  final Color color;
+  const _BackArrow({this.color = Colors.white});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..strokeWidth = 2.2
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke;
+
+    final double cx = size.width / 2;
+    final double cy = size.height / 2;
+
+    final path = Path()
+      ..moveTo(cx + 5, cy - 7)
+      ..lineTo(cx - 4, cy)
+      ..lineTo(cx + 5, cy + 7);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(_) => false;
+}
+
 class ArtSection {
   final String title;
   final String body;
@@ -44,34 +72,6 @@ const List<ArtSection> _sections = [
   ),
 ];
 
-// ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
-class _BackArrow extends CustomPainter {
-  final Color color;
-  const _BackArrow({this.color = Colors.black});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 2.2
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke;
-
-    final double cx = size.width / 2;
-    final double cy = size.height / 2;
-
-    final path = Path()
-      ..moveTo(cx + 5, cy - 7)
-      ..lineTo(cx - 4, cy)
-      ..lineTo(cx + 5, cy + 7);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(_) => false;
-}
-
 class ArteScreen extends StatelessWidget {
   const ArteScreen({super.key});
 
@@ -86,58 +86,66 @@ class ArteScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🔹 BOTÃO VOLTAR
-            Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).padding.top + 8,
-                left: 12,
-              ),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: SizedBox(
-                  width: 32,
-                  height: 32,
-                  child: CustomPaint(
-                    painter: const _BackArrow(color: Colors.black),
+            // 🔹 BANNER COM IMAGEM + GRADIENTE + TÍTULO
+            Stack(
+              children: [
+                // Imagem de fundo full-width
+                SizedBox(
+                  width: double.infinity,
+                  height: 220,
+                  child: Image.asset(
+                    'assets/images/arte.jpeg',
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ),
 
-            const SizedBox(height: 12),
-
-            // 🔹 IMAGEM (HEADER EM FORMATO CARD)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: SizedBox(
-                  height: 90,
-                  width: 210,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      Image.asset(
-                        'assets/images/arte.jpeg',
-                        fit: BoxFit.cover,
-                      ),
-                      Container(color: const Color(0x88A855C8)),
-                      Positioned(
-                        bottom: -21,
-                        left: 0,
-                        child: Text(
-                          'ARTE',
-                          style: GoogleFonts.leagueSpartan(
-                            fontSize: 45,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
+                // Overlay gradiente escuro
+                Container(
+                  width: double.infinity,
+                  height: 220,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        Color(0xAA000000),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+
+                // Título no canto inferior esquerdo
+                Positioned(
+                  bottom: 16,
+                  left: 20,
+                  child: Text(
+                    'ARTE',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ),
+
+                // Botão de voltar
+                Positioned(
+                  top: MediaQuery.of(context).padding.top + 8,
+                  left: 16,
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: SizedBox(
+                      width: 32,
+                      height: 32,
+                      child: CustomPaint(
+                        painter: const _BackArrow(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
 
             // 🔹 CONTEÚDO
@@ -246,7 +254,7 @@ class _SectionCard extends StatelessWidget {
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 elevation: 0,
               ),

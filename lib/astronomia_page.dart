@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 
+// ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
+class _BackArrow extends CustomPainter {
+  final Color color;
+  const _BackArrow({this.color = Colors.white});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..strokeWidth = 2.2
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke;
+
+    final double cx = size.width / 2;
+    final double cy = size.height / 2;
+
+    final path = Path()
+      ..moveTo(cx + 5, cy - 7)
+      ..lineTo(cx - 4, cy)
+      ..lineTo(cx + 5, cy + 7);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(_) => false;
+}
 class AstronomiaPage extends StatelessWidget {
   const AstronomiaPage({super.key});
 
@@ -127,10 +154,16 @@ class _CoverImage extends StatelessWidget {
         // Botão voltar
         Positioned(
           top: MediaQuery.of(context).padding.top + 8,
-          left: 12,
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            onPressed: () => Navigator.of(context).pop(),
+          left: 16,
+          child: GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            child: SizedBox(
+              width: 32,
+              height: 32,
+              child: CustomPaint(
+                painter: const _BackArrow(color: Colors.white),
+              ),
+            ),
           ),
         ),
       ],
@@ -237,7 +270,7 @@ class _ContentCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onArButtonPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF7B3FA0),
+                backgroundColor: const Color.fromARGB(255, 37, 72, 167),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

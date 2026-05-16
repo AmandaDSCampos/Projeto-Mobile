@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'arte.dart';
 import 'fauna_page.dart';
 import 'astronomia_page.dart';
+import 'anatomia.dart';
 
 void main() {
   runApp(const Learning3DApp());
@@ -156,6 +157,14 @@ Widget build(BuildContext context) {
       context,
       MaterialPageRoute(
         builder: (context) => const AstronomiaPage(),
+      ),
+    );
+  }
+   else if (card.title == 'ANATOMIA') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AnatomiaPage(),
       ),
     );
   }

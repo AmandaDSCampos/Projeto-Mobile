@@ -28,8 +28,8 @@ class _BackArrow extends CustomPainter {
   bool shouldRepaint(_) => false;
 }
 
-class FaunaPage extends StatelessWidget {
-  const FaunaPage({super.key});
+class AnatomiaPage extends StatelessWidget {
+  const AnatomiaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class FaunaPage extends StatelessWidget {
           children: [
             // ── Banner com imagem de capa + botão de voltar ──
             _CoverImage(
-              imagePath: 'assets/images/fauna.jpeg',
-              title: 'FAUNA',
+              imagePath: 'assets/images/anatomia.jpeg',
+              title: 'ANATOMIA',
             ),
 
             // ── Corpo da página ──
@@ -51,13 +51,11 @@ class FaunaPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Texto introdutório
                   const Text(
-                    'A fauna representa a diversidade de animais que habitam nosso '
-                    'planeta, revelando a riqueza da vida em diferentes ecossistemas. '
-                    'Cada espécie possui características únicas e desempenha um papel '
-                    'fundamental no equilíbrio da natureza. A seguir, explore '
-                    'curiosidades fascinantes sobre o mundo animal.',
+                    'A anatomia é a ciência que estuda a estrutura e a organização '
+                    'dos seres vivos. Desde os menores tecidos até os grandes sistemas '
+                    'do corpo humano, ela nos ajuda a compreender como funcionamos por '
+                    'dentro. A seguir, descubra curiosidades incríveis sobre o corpo humano.',
                     style: TextStyle(
                       fontSize: 14,
                       height: 1.55,
@@ -67,21 +65,32 @@ class FaunaPage extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  // ── Card: Raposa ──
                   _ContentCard(
-                    title: 'Raposa — Inteligência e adaptação',
+                    title: 'Coração — O motor do corpo humano',
                     intro:
-                        'A raposa é conhecida por sua astúcia e capacidade de '
-                        'adaptação a diferentes ambientes:',
+                        'O coração é um dos órgãos mais vitais e fascinantes '
+                        'do corpo humano:',
                     bullets: const [
-                      'Possui sentidos extremamente aguçados, especialmente audição e olfato.',
-                      'Consegue viver tanto em florestas quanto em áreas urbanas.',
-                      'Sua cauda ajuda no equilíbrio e também a se proteger do frio.',
-                      'É um animal solitário e muito estratégico na caça.',
+                      'É um músculo que bate em média 100 mil vezes por dia.',
+                      'Possui quatro câmaras: dois átrios e dois ventrículos.',
+                      'Bombeia cerca de 5 litros de sangue por minuto em repouso.',
+                      'Seu peso médio em adultos é de aproximadamente 300 gramas.',
                     ],
-                    onArButtonPressed: () {
-                      // Integrar com realidade aumentada
-                    },
+                    onArButtonPressed: () {},
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  _ContentCard(
+                    title: 'Cérebro — O centro de comando',
+                    intro: 'O cérebro é o órgão mais complexo do corpo humano:',
+                    bullets: const [
+                      'Contém aproximadamente 86 bilhões de neurônios.',
+                      'Representa cerca de 2% do peso corporal, mas consome 20% da energia.',
+                      'É dividido em dois hemisférios com funções complementares.',
+                      'Continua se desenvolvendo e formando novas conexões ao longo da vida.',
+                    ],
+                    onArButtonPressed: () {},
                   ),
 
                   const SizedBox(height: 32),
@@ -99,10 +108,7 @@ class FaunaPage extends StatelessWidget {
 // Componente: imagem de capa com overlay e título
 // ─────────────────────────────────────────────
 class _CoverImage extends StatelessWidget {
-  const _CoverImage({
-    required this.imagePath,
-    required this.title,
-  });
+  const _CoverImage({required this.imagePath, required this.title});
 
   final String imagePath;
   final String title;
@@ -111,17 +117,11 @@ class _CoverImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Imagem de fundo
         SizedBox(
           width: double.infinity,
           height: 220,
-          child: Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(imagePath, fit: BoxFit.cover),
         ),
-
-        // Overlay escuro gradiente
         Container(
           width: double.infinity,
           height: 220,
@@ -129,15 +129,10 @@ class _CoverImage extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [
-                Colors.transparent,
-                Color(0xAA000000),
-              ],
+              colors: [Colors.transparent, Color(0xAA000000)],
             ),
           ),
         ),
-
-        // Título sobre a imagem
         Positioned(
           bottom: 16,
           left: 20,
@@ -145,15 +140,13 @@ class _CoverImage extends StatelessWidget {
             title,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
             ),
           ),
         ),
-
-        
-        // Botão voltar
+        // Botão voltar com CustomPaint
         Positioned(
           top: MediaQuery.of(context).padding.top + 8,
           left: 16,
@@ -209,7 +202,6 @@ class _ContentCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Título do card
           Text(
             title,
             style: const TextStyle(
@@ -218,74 +210,41 @@ class _ContentCard extends StatelessWidget {
               color: Color(0xFF1A1A1A),
             ),
           ),
-
           const SizedBox(height: 12),
-
-          // Introdução
           Text(
             intro,
-            style: const TextStyle(
-              fontSize: 14,
-              height: 1.5,
-              color: Color(0xFF444444),
-            ),
+            style: const TextStyle(fontSize: 14, height: 1.5, color: Color(0xFF444444)),
           ),
-
           const SizedBox(height: 12),
-
-          // Bullets de curiosidades
           ...bullets.map(
             (item) => Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    '• ',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xFF444444),
-                      height: 1.5,
-                    ),
-                  ),
+                  const Text('• ', style: TextStyle(fontSize: 14, color: Color(0xFF444444), height: 1.5)),
                   Expanded(
-                    child: Text(
-                      item,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        height: 1.5,
-                        color: Color(0xFF444444),
-                      ),
-                    ),
+                    child: Text(item, style: const TextStyle(fontSize: 14, height: 1.5, color: Color(0xFF444444))),
                   ),
                 ],
               ),
             ),
           ),
-
           const SizedBox(height: 20),
-
-          // Botão "Ver em realidade aumentada"
           SizedBox(
             width: double.infinity,
             height: 48,
             child: ElevatedButton(
               onPressed: onArButtonPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 204, 96, 23),
+                backgroundColor: const Color.fromARGB(255, 23, 160, 119),
                 foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 elevation: 0,
               ),
               child: const Text(
                 'Ver em realidade aumentada',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.3,
-                ),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, letterSpacing: 0.3),
               ),
             ),
           ),
