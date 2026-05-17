@@ -1,4 +1,4 @@
-# Learning 3D 🚀
+# Learning 3D 
 
 > Projeto desenvolvido para a disciplina de Desenvolvimento Mobile do curso de Bacharelado em Ciência da Computação.
 
@@ -6,13 +6,13 @@ O **Learning 3D** é um aplicativo mobile focado em complementar a experiência 
 
 ---
 
-## 📱 Sobre o Projeto
+## Sobre o Projeto
 
 A proposta do aplicativo é transformar a leitura teórica e estática dos livros em uma experiência visual ativa. Ao estudar sobre uma escultura histórica ou a estrutura de um planeta, o aluno pode projetar o modelo 3D correspondente no espaço físico (como mesas ou superfícies), facilitando a compreensão espacial e anatômica dos objetos estudados.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 * **Matérias:** Navegação categorizada por disciplinas (Arte, Anatomia, Fauna, Astronomia).
 * **Curiosidades Interativas:** Cards informativos com fatos e detalhes históricos importantes sobre cada elemento antes da visualização 3D.
@@ -21,7 +21,7 @@ A proposta do aplicativo é transformar a leitura teórica e estática dos livro
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Framework:** [Flutter](https://flutter.dev/) (linguagem Dart)
 * **Visualização 3D/AR:** `model_viewer_plus` (integração nativa com o *Scene Viewer* do Android / *Quick Look* do iOS)
@@ -29,17 +29,7 @@ A proposta do aplicativo é transformar a leitura teórica e estática dos livro
 
 ---
 
-## 📸 Demonstração (Screenshots)
-
-<p align="center">
-  <img src="assets/images/screenshot_home.png" width="30%" alt="Menu Principal" />
-  <img src="assets/images/screenshot_materia.png" width="30%" alt="Detalhes da Matéria" />
-  <img src="assets/images/screenshot_ar.png" width="30%" alt="Visualizador AR" />
-</p>
-
----
-
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina o **Flutter SDK** configurado e um dispositivo físico Android (com suporte a ARCore) conectado via USB para testar a Realidade Aumentada.
