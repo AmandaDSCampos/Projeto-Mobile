@@ -12,11 +12,13 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   google_fonts: ^8.0.2
+  model_viewer_plus: ^1.10.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: "^0.13.1" # ◄ Adicione esta linha
 
 flutter:
   assets:
@@ -24,3 +26,10 @@ flutter:
     - assets/images/anatomia.jpeg
     - assets/images/fauna.jpeg
     - assets/images/astronomia.jpeg
+
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/images/iconeApp.png" # ◄ Caminho da sua imagem quadrada

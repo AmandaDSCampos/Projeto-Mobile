@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// Importe a tela do visualizador AR. Certifique-se de que o caminho do arquivo está correto:
+import 'ArViewerScreen.dart'; 
 
-// ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
 class _BackArrow extends CustomPainter {
   final Color color;
   const _BackArrow({this.color = Colors.white});
@@ -32,7 +33,13 @@ class _BackArrow extends CustomPainter {
 class ArtSection {
   final String title;
   final String body;
-  const ArtSection({required this.title, required this.body});
+  final String glbUrl;  // URL para Android
+
+  const ArtSection({
+    required this.title,
+    required this.body,
+    required this.glbUrl,  
+  });
 }
 
 const String _introBody =
@@ -42,34 +49,24 @@ const String _introBody =
     'conhecer curiosidades e detalhes interessantes sobre algumas dessas '
     'criações famosas.';
 
+// ── LISTA DE SEÇÕES COM OS LINKS DO SEU DRIVE CONFIGURADOS ──
 const List<ArtSection> _sections = [
+  ArtSection(
+    title: 'O Pensador — Auguste Rodin',
+    body: 'Inaugurada em 1904, esta icônica escultura de bronze representa um homem em meditação profunda, lutando com uma poderosa força interna:\n\n'
+        '• Originalmente, a obra não foi feita de forma isolada; ela fazia parte de um portal monumental chamado "As Portas do Inferno", baseado na Divina Comédia de Dante.\n\n'
+        '• A figura representa o próprio Dante Alighieri na frente das portas, reflecting sobre o destino da humanidade.',
+    glbUrl: 'https://docs.google.com/uc?export=download&id=1UI36IcneDB6yUs3s8gcV4NDhnIR71CRU', 
+  ),
   ArtSection(
     title: 'A Noite Estrelada — Vincent van Gogh',
     body: 'Pintada em 1889, essa é uma das obras mais reconhecidas do mundo. '
         'Mas por trás da beleza das espirais no céu, existem detalhes pouco '
         'conhecidos:\n\n'
-        '• Van Gogh criou a obra enquanto estava internado em um hospital '
-        'psiquiátrico em Saint-Rémy-de-Provence.\n\n'
-        '• A paisagem não é exatamente o que ele via da janela — ele misturou '
-        'realidade com imaginação.\n\n'
-        '• Os redemoinhos no céu já foram analisados por cientistas e '
-        'apresentam padrões semelhantes à turbulência de fluidos.\n\n'
-        '• Apesar de hoje ser considerada uma obra-prima, Van Gogh vendeu '
-        'apenas um quadro em vida.',
-  ),
-  ArtSection(
-    title: 'Emma in a Straw Hat — Mary Cassatt',
-    body: 'Essa obra, criada por Mary Cassatt, destaca-se pela delicadeza e '
-        'pelo olhar intimista:\n\n'
-        '• Cassatt foi uma das poucas mulheres associadas ao movimento '
-        'impressionista.\n\n'
-        '• A pintura retrata uma jovem com um chapéu de palha, transmitindo '
-        'leveza e naturalidade — características marcantes do impressionismo.\n\n'
-        '• A artista tinha grande interesse em retratar a vida cotidiana, '
-        'especialmente mulheres e crianças.\n\n'
-        '• Diferente de muitos artistas da época, Cassatt focava em cenas '
-        'domésticas e íntimas, trazendo uma nova perspectiva para a arte.',
-  ),
+        '• Van Gogh criou a obra enquanto estava internado em um hospital psiquiátrico...\n\n'
+        '• Os redemoinhos no céu apresentam padrões semelhantes à turbulência matemática de fluidos.',
+    glbUrl: 'https://docs.google.com/uc?export=download&id=1FlkweHx1IH9P_te_q2kw79ySQsR_HyOf', 
+  ),  
 ];
 
 class ArteScreen extends StatelessWidget {
@@ -86,10 +83,9 @@ class ArteScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🔹 BANNER COM IMAGEM + GRADIENTE + TÍTULO
+            // Banner Principal
             Stack(
               children: [
-                // Imagem de fundo full-width
                 SizedBox(
                   width: double.infinity,
                   height: 220,
@@ -98,8 +94,6 @@ class ArteScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-
-                // Overlay gradiente escuro
                 Container(
                   width: double.infinity,
                   height: 220,
@@ -107,15 +101,10 @@ class ArteScreen extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Color(0xAA000000),
-                      ],
+                      colors: [Colors.transparent, Color(0xAA000000)],
                     ),
                   ),
                 ),
-
-                // Título no canto inferior esquerdo
                 Positioned(
                   bottom: 16,
                   left: 20,
@@ -129,8 +118,6 @@ class ArteScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Botão de voltar
                 Positioned(
                   top: MediaQuery.of(context).padding.top + 8,
                   left: 16,
@@ -148,7 +135,7 @@ class ArteScreen extends StatelessWidget {
               ],
             ),
 
-            // 🔹 CONTEÚDO
+            // Conteúdo textual e Cards
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Column(
@@ -162,16 +149,13 @@ class ArteScreen extends StatelessWidget {
                       color: Colors.black87,
                     ),
                   ),
-
                   const SizedBox(height: 28),
-
                   ..._sections.map(
                     (section) => _SectionCard(
                       section: section,
                       accentColor: _purple,
                     ),
                   ),
-
                   const SizedBox(height: 24),
                 ],
               ),
@@ -191,6 +175,18 @@ class _SectionCard extends StatelessWidget {
     required this.section,
     required this.accentColor,
   });
+
+  // Direciona o fluxo para a tela preta com feedback visual ativo
+  void _openDirectAR(BuildContext context, String title, String url) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ArViewerScreen(
+          title: title,
+          modelUrl: url,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -220,9 +216,7 @@ class _SectionCard extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-
           const SizedBox(height: 6),
-
           Container(
             height: 2,
             width: 40,
@@ -231,9 +225,7 @@ class _SectionCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(2),
             ),
           ),
-
           const SizedBox(height: 12),
-
           Text(
             section.body,
             style: GoogleFonts.roboto(
@@ -242,19 +234,26 @@ class _SectionCard extends StatelessWidget {
               color: Colors.black87,
             ),
           ),
-
           const SizedBox(height: 20),
-
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () => debugPrint('Abrir AR: ${section.title}'),
+              onPressed: () {
+                if (section.glbUrl.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Modelo 3D ainda não disponível para esta obra.')),
+                  );
+                  return;
+                }
+                
+                _openDirectAR(context, section.title, section.glbUrl);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: accentColor,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 elevation: 0,
               ),
