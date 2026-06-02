@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
 class _BackArrow extends CustomPainter {
@@ -139,15 +140,15 @@ class _CoverImage extends StatelessWidget {
 
         // Título sobre a imagem
         Positioned(
-          bottom: 16,
-          left: 20,
+            bottom: 5,
+            left: 15,
           child: Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1,
+            style: GoogleFonts.leagueSpartan(
+                color: Colors.white,
+                fontSize: 65,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
             ),
           ),
         ),

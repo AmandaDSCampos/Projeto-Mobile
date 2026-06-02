@@ -26,6 +26,8 @@ flutter:
     - assets/images/anatomia.jpeg
     - assets/images/fauna.jpeg
     - assets/images/astronomia.jpeg
+    - assets/images/SplashScreen.png
+    - assets/images/Logo.png
 
 
 

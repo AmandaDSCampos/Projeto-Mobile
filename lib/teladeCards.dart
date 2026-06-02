@@ -46,22 +46,22 @@ class HomeScreen extends StatelessWidget {
     SubjectCard(
       title: 'ARTE',
       imagePath: 'assets/images/arte.jpeg',
-      overlayColor: Color(0x66A855C8), // roxo semitransparente
+      overlayColor: Color.fromARGB(56, 0, 0, 0), // roxo semitransparente
     ),
     SubjectCard(
       title: 'ANATOMIA',
       imagePath: 'assets/images/anatomia.jpeg',
-      overlayColor: Color(0x662E8B6E), // verde semitransparente
+      overlayColor: Color.fromARGB(43, 0, 0, 0), // verde semitransparente
     ),
     SubjectCard(
       title: 'FAUNA',
       imagePath: 'assets/images/fauna.jpeg',
-      overlayColor: Color(0x66D4614A), // salmão semitransparente
+      overlayColor: Color.fromARGB(56, 0, 0, 0), // salmão semitransparente
     ),
     SubjectCard(
       title: 'ASTRONOMIA',
       imagePath: 'assets/images/astronomia.jpeg',
-      overlayColor: Color(0x661A3A6B), // azul escuro semitransparente
+      overlayColor: Color.fromARGB(56, 0, 0, 0), // azul escuro semitransparente
     ),
   ];
 
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 'LEARNING\n3D',
                 style: GoogleFonts.leagueSpartan(
-                  fontSize: 42,
+                  fontSize: 60,
                   fontWeight: FontWeight.w800,
                   height: 1.1,
                   color: Colors.black,
@@ -95,8 +95,8 @@ class HomeScreen extends StatelessWidget {
               Text(
                 'Minhas matérias',
                 style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
@@ -219,8 +219,8 @@ Widget build(BuildContext context) {
               child: Text(
                 card.title,
                 style: GoogleFonts.leagueSpartan(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                   letterSpacing: 0.5,
                 ),

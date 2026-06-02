@@ -106,13 +106,13 @@ class ArteScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 16,
-                  left: 20,
+                  bottom: 5,
+                  left: 15,
                   child: Text(
                     'ARTE',
-                    style: const TextStyle(
+                    style: GoogleFonts.leagueSpartan(
                       color: Colors.white,
-                      fontSize: 26,
+                      fontSize: 65,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                     ),
@@ -153,7 +153,7 @@ class ArteScreen extends StatelessWidget {
                   ..._sections.map(
                     (section) => _SectionCard(
                       section: section,
-                      accentColor: _purple,
+                      accentColor: const Color.fromARGB(255, 102, 18, 186),
                     ),
                   ),
                   const SizedBox(height: 24),
