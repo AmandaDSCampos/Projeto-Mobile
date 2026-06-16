@@ -85,6 +85,26 @@ class AstronomiaPage extends StatelessWidget {
                     },
                   ),
 
+                  const SizedBox(height: 16),
+
+                  // ── Card: Saturno ──
+                  _ContentCard(
+                    title: 'Lua — A companheira da Terra',
+                    intro:
+                        'A Lua é o único satélite natural da Terra '
+                        'e um dos corpos celestes mais observados pela humanidade:',
+                    bullets: const [
+                      'É o satélite natural da Terra.',
+                      'Está a aproximadamente 384.400 km da Terra.',
+                      'Não possui luz própria; reflete a luz do Sol.',
+                      'Sua gravidade influencia diretamente as marés terrestres.',
+                      'Apresenta fases lunares (nova, crescente, cheia e minguante) conforme sua posição em relação à Terra e ao Sol.'
+                    ],
+                    onArButtonPressed: () {
+                      // Integrar com realidade aumentada
+                    },
+                  ),
+
                   const SizedBox(height: 32),
                 ],
               ),
@@ -272,7 +292,7 @@ class _ContentCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onArButtonPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 37, 72, 167),
+                backgroundColor: const Color.fromARGB(255, 81, 98, 150),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

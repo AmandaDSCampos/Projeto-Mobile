@@ -85,6 +85,25 @@ class FaunaPage extends StatelessWidget {
                     },
                   ),
 
+                  const SizedBox(height: 16),
+
+                   _ContentCard(
+                    title: 'Coelho — O Mestre dos saltos',
+                    intro:
+                        'O coelho é um mamífero ágil e dócil, conhecido por  '
+                        'suas longas orelhas e grandes saltos:',
+                    bullets: const [
+                      'Possui orelhas longas que ajudam a detectar sons e a regular a temperatura corporal.',
+                      'Pode saltar grandes distâncias graças às suas fortes patas traseiras.',
+                      'É um animal herbívoro, alimentando-se principalmente de capim, folhas e vegetais.',
+                      'Vive em tocas e costuma ser mais ativo ao amanhecer e ao entardecer.',
+                      'Vive em tocas e costuma ser mais ativo ao amanhecer e ao entardecer'
+                    ],
+                    onArButtonPressed: () {
+                      // Integrar com realidade aumentada
+                    },
+                  ),
+
                   const SizedBox(height: 32),
                 ],
               ),
@@ -273,7 +292,7 @@ class _ContentCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onArButtonPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 204, 96, 23),
+                backgroundColor: const Color.fromARGB(255, 192, 105, 47),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

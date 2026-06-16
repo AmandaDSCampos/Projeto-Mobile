@@ -239,7 +239,7 @@ class _ContentCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onArButtonPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 23, 160, 119),
+                backgroundColor: const Color.fromARGB(255, 78, 152, 130),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 elevation: 0,

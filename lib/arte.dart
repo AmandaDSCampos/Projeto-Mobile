@@ -153,7 +153,7 @@ class ArteScreen extends StatelessWidget {
                   ..._sections.map(
                     (section) => _SectionCard(
                       section: section,
-                      accentColor: const Color.fromARGB(255, 102, 18, 186),
+                      accentColor: const Color.fromARGB(255, 125, 92, 147),
                     ),
                   ),
                   const SizedBox(height: 24),
