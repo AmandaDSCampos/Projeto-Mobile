@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'ArViewerScreen.dart';
 
 // ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
 class _BackArrow extends CustomPainter {
@@ -77,7 +78,16 @@ class AnatomiaPage extends StatelessWidget {
                       'Bombeia cerca de 5 litros de sangue por minuto em repouso.',
                       'Seu peso médio em adultos é de aproximadamente 300 gramas.',
                     ],
-                    onArButtonPressed: () {},
+                    onArButtonPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ArViewerScreen(
+                            title: 'Coração',
+                            modelUrl: 'assets/models/heart.glb',
+                          ),
+                        ),
+                      );
+                    },
                   ),
 
                   const SizedBox(height: 16),
@@ -91,7 +101,16 @@ class AnatomiaPage extends StatelessWidget {
                       'É dividido em dois hemisférios com funções complementares.',
                       'Continua se desenvolvendo e formando novas conexões ao longo da vida.',
                     ],
-                    onArButtonPressed: () {},
+                    onArButtonPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ArViewerScreen(
+                            title: 'Cérebro',
+                            modelUrl: 'assets/models/brain.glb',
+                          ),
+                        ),
+                      );
+                    },
                   ),
 
                   const SizedBox(height: 32),

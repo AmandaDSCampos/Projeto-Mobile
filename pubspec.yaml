@@ -28,6 +28,9 @@ flutter:
     - assets/images/astronomia.jpeg
     - assets/images/SplashScreen.png
     - assets/images/Logo.png
+    - assets/models/saturn.glb
+    - assets/models/heart.glb
+    - assets/models/brain.glb
 
 
 

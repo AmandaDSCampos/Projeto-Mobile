@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'ArViewerScreen.dart';
 
 
 // ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
@@ -81,7 +82,14 @@ class AstronomiaPage extends StatelessWidget {
                       'Sua composição é predominantemente de gases, como hidrogênio e hélio.',
                     ],
                     onArButtonPressed: () {
-                      // Integrar com realidade aumentada
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ArViewerScreen(
+                            title: 'Saturno',
+                            modelUrl: 'assets/models/saturn.glb',
+                          ),
+                        ),
+                      );
                     },
                   ),
 
