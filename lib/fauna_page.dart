@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'ArViewerScreen.dart';
 
 // ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
 class _BackArrow extends CustomPainter {
@@ -81,7 +84,14 @@ class FaunaPage extends StatelessWidget {
                       'É um animal solitário e muito estratégico na caça.',
                     ],
                     onArButtonPressed: () {
-                      // Integrar com realidade aumentada
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ArViewerScreen(
+                            title: 'Raposa',
+                            modelUrl: 'assets/models/fox_idle.glb',
+                          ),
+                        ),
+                      );
                     },
                   ),
 
@@ -99,9 +109,16 @@ class FaunaPage extends StatelessWidget {
                       'Vive em tocas e costuma ser mais ativo ao amanhecer e ao entardecer.',
                       'Vive em tocas e costuma ser mais ativo ao amanhecer e ao entardecer'
                     ],
-                    onArButtonPressed: () {
-                      // Integrar com realidade aumentada
-                    },
+                     onArButtonPressed: () {
+                       Navigator.of(context).push(
+                         MaterialPageRoute(
+                           builder: (context) => const ArViewerScreen(
+                             title: 'Coelho',
+                             modelUrl: 'assets/models/rabbit.glb',
+                           ),
+                         ),
+                       );
+                     },
                   ),
 
                   const SizedBox(height: 32),

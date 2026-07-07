@@ -31,6 +31,9 @@ flutter:
     - assets/models/saturn.glb
     - assets/models/heart.glb
     - assets/models/brain.glb
+    - assets/models/moon.glb
+    - assets/models/fox_idle.glb
+    - assets/models/rabbit.glb
 
 
 

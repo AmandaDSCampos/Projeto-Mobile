@@ -95,7 +95,7 @@ class AstronomiaPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // ── Card: Saturno ──
+                  // ── Card: Lua ──
                   _ContentCard(
                     title: 'Lua — A companheira da Terra',
                     intro:
@@ -109,7 +109,14 @@ class AstronomiaPage extends StatelessWidget {
                       'Apresenta fases lunares (nova, crescente, cheia e minguante) conforme sua posição em relação à Terra e ao Sol.'
                     ],
                     onArButtonPressed: () {
-                      // Integrar com realidade aumentada
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ArViewerScreen(
+                            title: 'Lua',
+                            modelUrl: 'assets/models/moon.glb',
+                          ),
+                        ),
+                      );
                     },
                   ),
 
