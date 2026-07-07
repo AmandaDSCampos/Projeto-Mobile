@@ -86,7 +86,8 @@ class AstronomiaPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const ArViewerScreen(
                             title: 'Saturno',
-                            modelUrl: 'assets/models/saturn.glb',
+                            modelUrl: 'assets/models/saturn2.glb',
+                            accentColor: Color.fromARGB(255, 81, 98, 150),
                           ),
                         ),
                       );
@@ -114,6 +115,7 @@ class AstronomiaPage extends StatelessWidget {
                           builder: (context) => const ArViewerScreen(
                             title: 'Lua',
                             modelUrl: 'assets/models/moon.glb',
+                            accentColor: Color.fromARGB(255, 81, 98, 150),
                           ),
                         ),
                       );
@@ -175,15 +177,21 @@ class _CoverImage extends StatelessWidget {
 
         // Título sobre a imagem
        Positioned(
-            bottom: 5,
-            left: 15,
-          child: Text(
-            title,
-            style: GoogleFonts.leagueSpartan(
-                color: Colors.white,
-                fontSize: 60,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1,
+             bottom: 5,
+    left: 15,
+    right: 15,
+  child: FittedBox(
+    fit: BoxFit.scaleDown,
+    alignment: Alignment.centerLeft,
+    child: Text(
+      title,
+      maxLines: 1,
+      style: GoogleFonts.leagueSpartan(
+          color: Colors.white,
+          fontSize: 60,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 1,
+             ),
             ),
           ),
         ),

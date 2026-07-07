@@ -84,6 +84,7 @@ class AnatomiaPage extends StatelessWidget {
                           builder: (context) => const ArViewerScreen(
                             title: 'Coração',
                             modelUrl: 'assets/models/heart.glb',
+                            accentColor: Color.fromARGB(255, 78, 152, 130),
                           ),
                         ),
                       );
@@ -107,6 +108,7 @@ class AnatomiaPage extends StatelessWidget {
                           builder: (context) => const ArViewerScreen(
                             title: 'Cérebro',
                             modelUrl: 'assets/models/brain.glb',
+                            accentColor: Color.fromARGB(255, 78, 152, 130),
                           ),
                         ),
                       );

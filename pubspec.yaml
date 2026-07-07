@@ -29,11 +29,14 @@ flutter:
     - assets/images/SplashScreen.png
     - assets/images/Logo.png
     - assets/models/saturn.glb
+    - assets/models/saturn2.glb
     - assets/models/heart.glb
     - assets/models/brain.glb
     - assets/models/moon.glb
-    - assets/models/fox_idle.glb
+    - assets/models/fox.glb
     - assets/models/rabbit.glb
+    - assets/models/NoiteEstreladaQuadro.glb
+    - assets/models/Pensador.glb
 
 
 

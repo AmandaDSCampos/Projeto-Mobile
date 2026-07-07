@@ -56,7 +56,7 @@ const List<ArtSection> _sections = [
     body: 'Inaugurada em 1904, esta icônica escultura de bronze representa um homem em meditação profunda, lutando com uma poderosa força interna:\n\n'
         '• Originalmente, a obra não foi feita de forma isolada; ela fazia parte de um portal monumental chamado "As Portas do Inferno", baseado na Divina Comédia de Dante.\n\n'
         '• A figura representa o próprio Dante Alighieri na frente das portas, reflecting sobre o destino da humanidade.',
-    glbUrl: 'https://docs.google.com/uc?export=download&id=1UI36IcneDB6yUs3s8gcV4NDhnIR71CRU', 
+    glbUrl: 'assets/models/Pensador.glb',
   ),
   ArtSection(
     title: 'A Noite Estrelada — Vincent van Gogh',
@@ -65,7 +65,7 @@ const List<ArtSection> _sections = [
         'conhecidos:\n\n'
         '• Van Gogh criou a obra enquanto estava internado em um hospital psiquiátrico...\n\n'
         '• Os redemoinhos no céu apresentam padrões semelhantes à turbulência matemática de fluidos.',
-    glbUrl: 'https://docs.google.com/uc?export=download&id=1FlkweHx1IH9P_te_q2kw79ySQsR_HyOf', 
+    glbUrl: 'assets/models/NoiteEstreladaQuadro.glb',
   ),  
 ];
 

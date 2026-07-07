@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'ArViewerScreen.dart';
 
 // ── Seta desenhada via CustomPaint (não depende de fonte de ícone) ──
@@ -88,7 +86,8 @@ class FaunaPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const ArViewerScreen(
                             title: 'Raposa',
-                            modelUrl: 'assets/models/fox_idle.glb',
+                            modelUrl: 'assets/models/fox.glb',
+                            accentColor: Color.fromARGB(255, 192, 105, 47),
                           ),
                         ),
                       );
@@ -115,6 +114,7 @@ class FaunaPage extends StatelessWidget {
                            builder: (context) => const ArViewerScreen(
                              title: 'Coelho',
                              modelUrl: 'assets/models/rabbit.glb',
+                             accentColor: Color.fromARGB(255, 192, 105, 47),
                            ),
                          ),
                        );

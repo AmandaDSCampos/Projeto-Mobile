@@ -5,11 +5,13 @@ import 'package:model_viewer_plus/model_viewer_plus.dart';
 class ArViewerScreen extends StatelessWidget {
   final String title;
   final String modelUrl;
+  final Color accentColor;
 
   const ArViewerScreen({
     super.key,
     required this.title,
     required this.modelUrl,
+    this.accentColor = const Color(0xFF7B4FA6), // roxo como padrão (Arte)
   });
 
   @override
@@ -18,8 +20,6 @@ class ArViewerScreen extends StatelessWidget {
     final bool isWallModel = title.toLowerCase().contains('noite estrelada') || 
                              title.toLowerCase().contains('quadro');
 
-    // ◄ A SOLUÇÃO DEFINITIVA: Forçar os parâmetros nativos do Scene Viewer do Android por Intent URL
-    // Se for parede, passamos o placement=wall E também o modo ar_only para blindar o comportamento
     final String finalUrl = isWallModel
         ? '$modelUrl#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;ar-placement=wall;mode=ar_only'
         : modelUrl;
@@ -37,7 +37,6 @@ class ArViewerScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // O visualizador 3D limpo rodando a URL formatada por intent
           ModelViewer(
             backgroundColor: Colors.black,
             src: finalUrl,
@@ -49,7 +48,6 @@ class ArViewerScreen extends StatelessWidget {
             disableZoom: false,
           ),
 
-          // Texto de instrução dinâmico na tela preta
           Positioned(
             top: 24,
             left: 20,
@@ -73,7 +71,7 @@ class ArViewerScreen extends StatelessWidget {
                         : 'Clique no botão do cubo abaixo e aponte para o CHÃO',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.roboto(
-                      color: const Color(0xFF7B4FA6),
+                      color: accentColor,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),

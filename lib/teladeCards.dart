@@ -216,13 +216,18 @@ Widget build(BuildContext context) {
               bottom: 12,
               left: 12,
               right: 12,
-              child: Text(
-                card.title,
-                style: GoogleFonts.leagueSpartan(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 0.5,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  card.title,
+                 maxLines: 1,
+                 style: GoogleFonts.leagueSpartan(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 0.5,
+      ),
                 ),
               ),
             ),
